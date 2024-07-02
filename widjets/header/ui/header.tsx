@@ -1,11 +1,11 @@
-import { Button, Container, Link, Stack, Typography } from '@mui/material'
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Container, Link, Stack, Typography } from '@mui/material'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React from 'react'
 import NextLink from 'next/link'
 import img from '@/public/header.png'
 import Image from 'next/image'
+import OpenCartButton from '../componets/openCartButton';
 
 export default function Header() {
   return (
@@ -21,13 +21,9 @@ export default function Header() {
                 </Stack>
             </Link>
             <Stack direction='row' spacing='30px' alignItems='center'>
-                <Button variant='text' startIcon={<ShoppingCartOutlinedIcon/>}>
-                    <Stack direction='row'>
-                        <Typography variant='body1' color='primary' fontWeight={600}>1205 руб.</Typography>
-                    </Stack>
-                </Button>
-                <Link component={NextLink} href='/' underline='none' sx={{width:'20px', height: '20px'}}><FavoriteBorderOutlinedIcon/></Link>
-                <Link component={NextLink} href='/' underline='none' sx={{width:'20px', height: '20px'}}><AccountCircleOutlinedIcon/></Link>
+                <OpenCartButton/>
+                <Link component={NextLink} href='/Liked' underline='none' sx={{width:'20px', height: '20px'}}><FavoriteBorderOutlinedIcon/></Link>
+                <Link component={NextLink} href='/LogIn' underline='none' sx={{width:'20px', height: '20px'}}><AccountCircleOutlinedIcon/></Link>
             </Stack>
         </Stack>
     </Container>

@@ -1,13 +1,21 @@
-import { sneakersApi } from '@/app/( Main )/model/getSneakersList'
+import { sneakersApi } from '@/app/api/getSneakersList'
+import storeSlice from '@/app/api/cartSlice'
 import { configureStore } from '@reduxjs/toolkit'
+import authSlice from '@/app/api/authSlice'
+import { apiSlice } from '@/app/api/authApi'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-        [sneakersApi.reducerPath]: sneakersApi.reducer
+        authSlice: authSlice.reducer,
+        isCartOpen: storeSlice.reducer,
+        [apiSlice.reducerPath]: apiSlice.reducer,
+        [sneakersApi.reducerPath]: sneakersApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(sneakersApi.middleware)
+        getDefaultMiddleware()
+          .concat(sneakersApi.middleware)
+          .concat(apiSlice.middleware)
   })
 }
 

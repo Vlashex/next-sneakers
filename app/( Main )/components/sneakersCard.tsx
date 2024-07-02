@@ -1,11 +1,11 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import FavoriteButton from "./favoriteButton";
-import CartButton from "./cartButton";
+import FavoriteButton from "../../../entities/favoriteButton";
+import CartButton from "../../../entities/cartButton";
 import { SneakersCardInterface } from "@/app/( Main )/components/sneakersList";
 
-export default function SneakersCard({id, title, price, image} : SneakersCardInterface) {
+export default function SneakersCard({id, title, price, image} : SneakersCardInterface & {id: number}) {
 
     
   
@@ -17,7 +17,7 @@ export default function SneakersCard({id, title, price, image} : SneakersCardInt
         height: '280px',
         border: '1px solid #F3F3F3',
         borderRadius: '40px',
-        mb: '40px'
+        mb: '40px',
       }}>
         <Image width={125} height={125} src={`http://localhost:1337${image.data.attributes.url}`} alt=''/>
         <Typography 
@@ -30,11 +30,12 @@ export default function SneakersCard({id, title, price, image} : SneakersCardInt
             <Typography>Цена:</Typography>
             <Typography fontWeight={600}>{`${price} руб.`}</Typography>
           </Stack>
-          <CartButton/>
+          <CartButton itemId={id} type='main'/>
         </Stack>
+        <Button onClick={()=>alert(id)}>ALERT</Button>
   
         <FavoriteButton 
-            sx={{}}
+            itemId={id}
           />
       </Box>
     )

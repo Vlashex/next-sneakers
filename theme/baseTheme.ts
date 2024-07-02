@@ -75,7 +75,7 @@ const themeOptions : ThemeOptions = {
             },
             styleOverrides: {
                 root: {
-                    p: '10px',
+                    padding: '5px 15px',
                 }
             }
         },
@@ -90,6 +90,7 @@ const themeOptions : ThemeOptions = {
             styleOverrides: {
                 root: {
                     minWidth: '0',
+                    borderColor: '#000',
 
                     "&>span": {
                         margin: '0'
@@ -104,6 +105,16 @@ const themeOptions : ThemeOptions = {
                 }
             }
         },
+        MuiInput: {
+            defaultProps: {
+                disableUnderline: false
+            },
+            styleOverrides: {
+                root: {
+                    
+                }
+            }
+        }
     }
 }
 

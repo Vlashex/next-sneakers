@@ -4,12 +4,13 @@ import React from "react";
 import Banner from "./components/bunner";
 import SneakersList from "./components/sneakersList";
 
-export default async function Home() {
+export default function Home() {
+
 
   return (
     <Container maxWidth='md'>
       <Banner/>
-
+      
       <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{mb: '40px'}}>
         <Typography variant="h3" fontWeight={600}>Все кроссовки</Typography>
         <Stack direction='row' sx={{border: '1px solid #F3F3F3', borderRadius: '10px', p: '5px 0'}}>

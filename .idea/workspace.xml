@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9224ce70-0297-44bf-89b9-7b1152f13c33" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/( Main )/components/sneakersList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/( Main )/model/getSneakersList.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/( Main )/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/( Main )/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(Main)/components/sneakersList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(Main)/model/getSneakersList.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(Main)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(Main)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entities/cartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/entities/cartButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entities/sneakersCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/entities/sneakersCard.tsx" afterDir="false" />

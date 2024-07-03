@@ -1,5 +1,5 @@
 "use client"
-import { IsneakersCardData } from "@/app/( Auth )/SignUp/api/types"
+import { IsneakersCardData } from "@/app/(Auth)/SignUp/api/types"
 import SneakersCartCard from "./sneakersCartCard"
 import { useSelector } from "react-redux"
 

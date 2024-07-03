@@ -1,4 +1,4 @@
-import { IsneakersCardData } from "@/app/( Auth )/SignUp/api/types";
+import { IsneakersCardData } from "@/app/(Auth)/SignUp/api/types";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request): Promise<Response> {

@@ -1,4 +1,4 @@
-import signInApiSlice from '@/app/( Auth )/LogIn/api/signInApi'
+import signInApiSlice from '@/app/(Auth)/LogIn/api/signInApi'
 import adminApiSlice from '@/app/admin/api/adminApi'
 import authSlice from '@/app/api/slices/authSlice'
 import cartSlice from '@/app/api/slices/cartSlice'

@@ -1,5 +1,5 @@
-import { IsneakersCardData } from "@/app/( Auth )/SignUp/api/types"
-import SneakersCard from "@/app/( Main )/components/sneakersCard"
+import { IsneakersCardData } from "@/app/(Auth)/SignUp/api/types"
+import SneakersCard from "@/app/(Main)/components/sneakersCard"
 import { prisma } from "@/lib/prisma"
 
 

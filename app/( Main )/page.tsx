@@ -4,7 +4,7 @@ import React from "react";
 import Banner from "./components/bunner";
 import SneakersList from "./components/sneakersList";
 
-export default function Home() {
+export default async function Home() {
 
   return (
     <Container maxWidth='md'>

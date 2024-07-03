@@ -1,11 +1,11 @@
 "use client"
 import React from 'react'
 import { useSelector } from "react-redux";
-import { selectCartOpen } from "@/app/api/cartSlice";
 import Cart from './cart';
 import { Box } from '@mui/material';
 import CloseCartButton from '../components/closeCartButton';
 import SneakersCartList from '../components/sneakersCartList';
+import { selectCartOpen } from '@/app/api/slices/cartSlice';
 
 export default function CartWraper() {
 

@@ -4,24 +4,15 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToLiked, removeFromLiked, selectUser } from '@/app/api/authSlice';
 
 export default function FavoriteButton({itemId}: {itemId: number}) {
 
     const dispatch = useDispatch()
 
-    const inLiked = useSelector(selectUser)?.inLiked || []
-
-    const isFavorit = !!inLiked.find((element) => element == itemId)
-
+    const isFavorit = false
 
     return (
       <Button
-      onClick={()=>{
-        !inLiked
-        ?dispatch(removeFromLiked(itemId))
-        :dispatch(addToLiked(itemId))
-      }}
       sx={{
         position: 'absolute',
         top: '25px',

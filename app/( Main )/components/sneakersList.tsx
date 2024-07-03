@@ -1,39 +1,25 @@
-"use client"
+import { IsneakersCardData } from "@/app/( Auth )/SignUp/api/types"
 import SneakersCard from "@/app/( Main )/components/sneakersCard"
-import { useGetSneakersListQuery } from "../../api/getSneakersList"
-import { useSelector } from "react-redux"
-import { selectUser } from "@/app/api/authSlice"
-
-export interface SneakersCardInterface {
-    title:  string
-    price: number
-    image: any
-}
-
-export interface SneakersListInterface {
-    attributes: SneakersCardInterface,
-    id: number
-} 
+import { prisma } from "@/lib/prisma"
 
 
-export default function SneakersList() {
+export default async function SneakersList() {
 
-  const sneakersDataList:SneakersListInterface[] = useGetSneakersListQuery('sneakers-cards?populate=*&sort[0]=id').data?.data
+  const sneakersDataList:IsneakersCardData[] = await prisma.sneakersCardData.findMany()
+
 
   return (
     <>
     {
-      sneakersDataList
-      ? sneakersDataList.map((value : SneakersListInterface)=>
+      sneakersDataList.map((value : IsneakersCardData)=>
       <SneakersCard
           id={value.id}
-          title={value.attributes.title}
-          price={value.attributes.price}
-          image={value.attributes.image}
+          title={value.title}
+          price={value.price}
+          image={value.image}
           key={value.id}
         />
       )
-      : null
     }
     </>
   )

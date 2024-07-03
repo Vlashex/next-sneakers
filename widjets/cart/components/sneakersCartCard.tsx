@@ -1,11 +1,9 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import FavoriteButton from "../../../entities/favoriteButton";
 import CartButton from "../../../entities/cartButton";
-import { SneakersCardInterface } from "@/app/( Main )/components/sneakersList";
 
-export default function SneakersCartCard({id, title, price, image} : SneakersCardInterface & {id: number}) {
+export default function SneakersCartCard({id, title, price, image} : any) {
 
     return (
       <Box sx={{

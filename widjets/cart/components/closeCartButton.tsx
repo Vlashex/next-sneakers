@@ -1,4 +1,4 @@
-import { closeCart } from '@/app/api/cartSlice'
+import { closeCart } from '@/app/api/slices/cartSlice'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 

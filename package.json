@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"commonjs\"} prisma/seed.ts"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -14,7 +17,10 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
+    "@prisma/client": "^5.16.1",
     "@reduxjs/toolkit": "^2.2.6",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.2.4",
     "react": "^18",
     "react-cookie": "^7.1.4",
@@ -23,11 +29,14 @@
     "react-redux": "^9.1.2"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "prisma": "^5.16.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

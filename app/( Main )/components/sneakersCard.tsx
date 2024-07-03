@@ -3,9 +3,9 @@ import Image from "next/image";
 import React from "react";
 import FavoriteButton from "../../../entities/favoriteButton";
 import CartButton from "../../../entities/cartButton";
-import { SneakersCardInterface } from "@/app/( Main )/components/sneakersList";
+import { IsneakersCardData } from "@/app/( Auth )/SignUp/api/types";
 
-export default function SneakersCard({id, title, price, image} : SneakersCardInterface & {id: number}) {
+export default function SneakersCard({id, title, price, image}: IsneakersCardData) {
 
     
   
@@ -19,7 +19,7 @@ export default function SneakersCard({id, title, price, image} : SneakersCardInt
         borderRadius: '40px',
         mb: '40px',
       }}>
-        <Image width={125} height={125} src={`http://localhost:1337${image.data.attributes.url}`} alt=''/>
+        <Image width={125} height={125} src={image} alt=''/>
         <Typography 
           variant="body1" 
           fontWeight={600} 
@@ -32,7 +32,6 @@ export default function SneakersCard({id, title, price, image} : SneakersCardInt
           </Stack>
           <CartButton itemId={id} type='main'/>
         </Stack>
-        <Button onClick={()=>alert(id)}>ALERT</Button>
   
         <FavoriteButton 
             itemId={id}

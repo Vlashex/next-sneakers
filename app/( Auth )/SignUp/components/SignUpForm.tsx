@@ -1,11 +1,12 @@
 import React from 'react'
-import { registerInterface, useSignUpMutation } from '../api/signUpApi';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useCookies } from 'react-cookie';
-import { setCredentials } from '@/app/api/authSlice';
-import { Button, Input, Stack, Typography } from '@mui/material';
+import { Button, Input, Stack } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { useSignUpMutation } from '../api/signUpApi';
+import { IAuth, IRegistrate } from '../api/types';
+import { setCredentials } from '@/app/api/slices/authSlice';
 
 export default function SignUpForm() {
 
@@ -15,21 +16,14 @@ export default function SignUpForm() {
 
     const [cookies, setCookie] = useCookies(['token'])
 
-    const { register, handleSubmit } = useForm<registerInterface>();
+    const { register, handleSubmit } = useForm<IRegistrate>();
     
 
-    const onSubmit = async (data: registerInterface) => {
+    const onSubmit = async (data: IRegistrate) => {
         try {
-            const userData = await signup(data).unwrap()
-            dispatch(setCredentials({
-                user:{
-                    id: userData.user.id,
-                    name: userData.user.username,
-                    email: userData.user.email,
-                },
-                token: userData.jwt
-            }))
-            setCookie('token', userData.jwt)
+            const userData:IAuth = await signup(data).unwrap()
+            dispatch(setCredentials(userData))
+            setCookie('token', userData.token)
             router.replace('/')
         } catch (err) {
             console.log(err)

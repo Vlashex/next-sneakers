@@ -1,20 +1,19 @@
-import { FetchArgs, createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { authStateInterface, setCredentials } from "./authSlice";
+import { fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi } from "@reduxjs/toolkit/query/react";
+
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:1337/',
+    baseUrl: 'http://localhost:3000/',
     credentials: "same-origin",
     prepareHeaders: (headers, {getState}) => {
 
-        const token = (getState() as authStateInterface).token
-        console.log(token)
+        const token = null
         if (token) {
             headers.set("Authorization", `Bearer ${token}`)
         }
         return headers
     },
 })
-
 
 export const apiSlice = createApi({
     baseQuery: baseQuery,

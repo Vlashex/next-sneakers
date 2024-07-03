@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
+import { prisma } from "./lib/prisma";
 
 const isLoggedIn: boolean = false
 
 export function middleware(request: Request) {
 
-    console.log('middleware')
+    // const user = prisma.user.
+
+    // if (request.url == 'http://localhost:3000/admin' && )
 
     if (isLoggedIn) {
         return NextResponse.next()

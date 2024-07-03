@@ -1,16 +1,12 @@
 import { apiSlice } from "@/app/api/authApi"
+import { IRegistrate } from "./types"
 
-export interface registerInterface {
-    username: string
-    email: string
-    password: string
-}
 
 export const signUpApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         signUp: builder.mutation({
-            query: (credentials:registerInterface) => ({
-                url: '/api/auth/local/register',
+            query: (credentials:IRegistrate) => ({
+                url: '/api/auth/registrate',
                 method: 'POST',
 
                 body: credentials

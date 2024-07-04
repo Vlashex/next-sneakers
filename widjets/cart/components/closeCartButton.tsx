@@ -1,4 +1,5 @@
 import { closeCart } from '@/app/api/slices/cartSlice'
+import { Button } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
@@ -12,6 +13,9 @@ export default function CloseCartButton() {
     }
 
     return (
-      <div style={{flex: '1'}} onClick={clickHandler}/>
+      <Button sx={{
+        flex: '1', 
+        display:{sm: 'block', xs:'none'}
+      }}  onClick={clickHandler}/>
     )
 }

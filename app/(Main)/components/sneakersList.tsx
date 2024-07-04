@@ -3,10 +3,14 @@ import SneakersCard from "@/app/(Main)/components/sneakersCard"
 import { prisma } from "@/lib/prisma"
 
 
+
+
 export default async function SneakersList() {
 
-  const sneakersDataList:IsneakersCardData[] = await prisma.sneakersCardData.findMany()
+  
+  const sneakersDataList: IsneakersCardData[] = await prisma.sneakersCardData.findMany()
 
+  
 
   return (
     <>

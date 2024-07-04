@@ -1,5 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
+import { IAuth } from "../(Auth)/SignUp/api/types";
 
 
 const baseQuery = fetchBaseQuery({
@@ -7,7 +8,7 @@ const baseQuery = fetchBaseQuery({
     credentials: "same-origin",
     prepareHeaders: (headers, {getState}) => {
 
-        const token = null
+        const token = (getState() as IAuth).token
         if (token) {
             headers.set("Authorization", `Bearer ${token}`)
         }
@@ -16,6 +17,7 @@ const baseQuery = fetchBaseQuery({
 })
 
 export const apiSlice = createApi({
+    reducerPath: 'api',
     baseQuery: baseQuery,
     endpoints: builder => ({})
 })

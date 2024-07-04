@@ -12,8 +12,8 @@ export default function Home() {
       <Banner/>
       
       <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{mb: '40px'}}>
-        <Typography variant="h3" fontWeight={600}>Все кроссовки</Typography>
-        <Stack direction='row' sx={{border: '1px solid #F3F3F3', borderRadius: '10px', p: '5px 0'}}>
+        <Typography fontSize={{sm:"32px", xs: '22px'}} display={{mobile: 'flex', xs: 'none'}} marginRight='15px' fontWeight={600}>Все кроссовки</Typography>
+        <Stack direction='row' sx={{border: '1px solid #F3F3F3', borderRadius: '10px', p: '5px 0', flex: '1'}}>
           <Button startIcon={<SearchOutlinedIcon/>} 
           sx={{
             p: '5px 5px 5px 10px', 
@@ -27,7 +27,7 @@ export default function Home() {
           <Input disableUnderline placeholder="Поиск..."/>
         </Stack>
       </Stack>
-      <Stack direction='row' flexWrap='wrap' justifyContent='space-between'>
+      <Stack direction='row' flexWrap='wrap' justifyContent={{sm:'space-between', xs: 'space-around'}}>
         <SneakersList/>
       </Stack>
     </Container>

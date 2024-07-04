@@ -1,14 +1,26 @@
 "use client"
 import { ThemeOptions, createTheme } from "@mui/material"
 
+declare module '@mui/material/styles' {
+    interface BreakpointOverrides {
+      xs: true; // removes the `xs` breakpoint
+      sm: true;
+      md: true;
+      lg: true;
+      xl: true;
+      mobile: true; // adds the `mobile` breakpoint
+    }
+  }
+
 const themeOptions : ThemeOptions = {
     breakpoints: {
         values: {
             xs: 0,
+            mobile: 400,
             sm: 600,
             md: 960,
             lg: 1080,
-            xl: 1250, 
+            xl: 1250,
         }
     },
     palette: {

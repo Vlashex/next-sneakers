@@ -6,7 +6,7 @@ import img from '@/public/banner.png'
 
 export default function Banner() {
     return (
-      <Stack direction='row' sx={{background: '#F4EFE9', borderRadius: '20px', overflow: 'hidden', m: '45px 0'}} justifyContent='space-between'>
+      <Stack direction={{sm:'row', xs:'column'}} sx={{background: '#F4EFE9', borderRadius: '20px', overflow: 'hidden', m: '45px 0'}} justifyContent='space-between'>
         <Stack sx={{p: '50px'}} useFlexGap spacing={'30px'}>
           <Box>
             <Typography variant="h2" fontWeight={700} color='success.main'>Stan Smith,</Typography>

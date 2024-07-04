@@ -1,7 +1,7 @@
 import { IsneakersCardData } from "@/app/(Auth)/SignUp/api/types";
 import { prisma } from "@/lib/prisma";
 
-export async function GET(request: Request): Promise<Response> {
+export async function GET(): Promise<Response> {
 
     const sneakersCardsData = await prisma.sneakersCardData.findMany()
 

@@ -1,19 +1,19 @@
-import signInApiSlice from '@/app/(Auth)/LogIn/api/signInApi'
+import getSneakersListApiSlice from '@/app/(Main)/api/getSneakersListApi'
 import adminApiSlice from '@/app/admin/api/adminApi'
+import { apiSlice } from '@/app/api/authApi'
 import authSlice from '@/app/api/slices/authSlice'
 import cartSlice from '@/app/api/slices/cartSlice'
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, Tuple } from '@reduxjs/toolkit'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       [cartSlice.reducerPath]: cartSlice.reducer,
       [authSlice.reducerPath]: authSlice.reducer,
-      [adminApiSlice.reducerPath]: adminApiSlice.reducer,
+      [apiSlice.reducerPath]: apiSlice.reducer
     },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware()
-          .concat(adminApiSlice.middleware)
+    middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware().concat(apiSlice.middleware)
   })
 }
 

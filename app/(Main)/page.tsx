@@ -1,35 +1,18 @@
-import { Button, Container, Input, Stack, Typography } from "@mui/material";
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { Container } from "@mui/material";
 import React from "react";
 import Banner from "./components/bunner";
 import SneakersList from "./components/sneakersList";
+import { prisma } from "@/lib/prisma";
 
-export default function Home() {
+export default async function Page() {
 
+  const data = await prisma.sneakersCardData.findMany()
 
   return (
     <Container maxWidth='md'>
       <Banner/>
       
-      <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{mb: '40px'}}>
-        <Typography fontSize={{sm:"32px", xs: '22px'}} display={{mobile: 'flex', xs: 'none'}} marginRight='15px' fontWeight={600}>Все кроссовки</Typography>
-        <Stack direction='row' sx={{border: '1px solid #F3F3F3', borderRadius: '10px', p: '5px 0', flex: '1'}}>
-          <Button startIcon={<SearchOutlinedIcon/>} 
-          sx={{
-            p: '5px 5px 5px 10px', 
-            m: '', 
-            minWidth: '0', 
-            overflow: 'hidden', 
-            width: 'min-content',
-            ":hover": {m: ''}
-            }}
-          />
-          <Input disableUnderline placeholder="Поиск..."/>
-        </Stack>
-      </Stack>
-      <Stack direction='row' flexWrap='wrap' justifyContent={{sm:'space-between', xs: 'space-around'}}>
-        <SneakersList/>
-      </Stack>
+      <SneakersList data={data}/>
     </Container>
   );
 }

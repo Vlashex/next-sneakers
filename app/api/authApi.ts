@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { IAuth } from "../(Auth)/SignUp/api/types";
+import { IAuth } from "../types";
 
 
 const baseQuery = fetchBaseQuery({

@@ -1,4 +1,5 @@
-import { IAuth } from "@/app/(Auth)/SignUp/api/types";
+
+import { IAuth } from "@/app/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit/react";
 
 const baseState:IAuth = {

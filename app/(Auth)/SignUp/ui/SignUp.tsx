@@ -1,4 +1,3 @@
-"use client"
 import React from 'react';
 import SignUpForm from '../components/SignUpForm';
 import { Typography } from '@mui/material';

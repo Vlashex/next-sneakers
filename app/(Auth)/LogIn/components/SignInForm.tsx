@@ -1,49 +1,37 @@
 "use client"
 import { Button, Input, Stack } from "@mui/material"
+import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { useRouter } from "next/navigation";
-import { useCookies } from "react-cookie";
-import { useForm } from "react-hook-form";
-import { IAuth, ILogin } from "../../SignUp/api/types";
-import { useSignInMutation } from "../api/signInApi";
+import { login } from "../actions/loginAction";
 import { setCredentials } from "@/app/api/slices/authSlice";
-
+import { useCookies } from "react-cookie";
 
 const SignInForm = () => {
 
-    const [login] = useSignInMutation()
-    const { register, handleSubmit } = useForm<ILogin>();
-    const dispatch = useDispatch();
-    const router = useRouter()
-
-    const [cookies, setCookie] = useCookies(['access_token', 'refresh_token'])
-
-    const onSubmit = async (data: ILogin) => {
-        try {
-            const userData:IAuth = await login(data).unwrap()
-            dispatch(setCredentials(userData))
-            
-            setCookie('access_token', userData.token)
-
-
-            router.replace('/')
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    const dispatch = useDispatch()
+    const [cookies, setCookie] = useCookies(['token'])
 
     return (
-        <form style={{width: '100%', marginTop: '50px'}} onSubmit={handleSubmit(onSubmit)}>
+        <form style={{width: '100%', marginTop: '50px'}} 
+        action={async(formData:FormData)=>{
+            const auth = await login(formData)
+
+            auth != null?dispatch(setCredentials(auth)):null
+
+            auth != null?setCookie("token", auth.token):null
+
+            auth != null?redirect('/'):null
+        }}>
             <Stack spacing={'30px'}>
                 <Input 
-                {...register("email", { required: true})}
+                name="email"
                 placeholder='Введите email' 
                 disableUnderline 
                 sx={{
                     height: '60px', padding: '10px', background: '#e4e4e4', borderRadius: '5px'
                 }}/>
                 <Input 
-                {...register("password", { required: true})}
+                name='password'
                 placeholder='Введите пароль'  
                 disableUnderline 
                 sx={{

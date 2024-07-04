@@ -1,13 +1,16 @@
 import { Container, Link, Stack, Typography } from '@mui/material'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React from 'react'
 import NextLink from 'next/link'
 import img from '@/public/header.png'
 import Image from 'next/image'
 import OpenCartButton from '../componets/openCartButton';
+import ProfileButton from '../componets/profileButton';
+import { prisma } from '@/lib/prisma';
 
-export default function Header() {
+export default async function Header() {
+
+
   return (
     <Container maxWidth='md'>
         <Stack direction='row' justifyContent='space-between' alignItems={'center'}>
@@ -23,7 +26,7 @@ export default function Header() {
             <Stack direction='row' spacing={{mobile:'30px', xs: '15px'}} alignItems='center'>
                 <OpenCartButton/>
                 <Link component={NextLink} href='/Liked' underline='none' sx={{width:'20px', height: '20px'}}><FavoriteBorderOutlinedIcon/></Link>
-                <Link component={NextLink} href='/LogIn' underline='none' sx={{width:'20px', height: '20px'}}><AccountCircleOutlinedIcon/></Link>
+                <ProfileButton/>
             </Stack>
         </Stack>
     </Container>

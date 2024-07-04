@@ -1,5 +1,3 @@
-import getSneakersListApiSlice from '@/app/(Main)/api/getSneakersListApi'
-import adminApiSlice from '@/app/admin/api/adminApi'
 import { apiSlice } from '@/app/api/authApi'
 import authSlice from '@/app/api/slices/authSlice'
 import cartSlice from '@/app/api/slices/cartSlice'

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import FavoriteButton from "../../../entities/favoriteButton";
 import CartButton from "../../../entities/cartButton";
-import { IsneakersCardData } from "@/app/(Auth)/SignUp/api/types";
+import { IsneakersCardData } from "@/app/types";
 
 export default function SneakersCard({id, title, price, image}: IsneakersCardData) {
 

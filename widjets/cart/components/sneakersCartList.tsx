@@ -1,15 +1,14 @@
-"use client"
-import { IsneakersCardData } from "@/app/(Auth)/SignUp/api/types"
+import { IsneakersCardData } from "@/app/types"
 import SneakersCartCard from "./sneakersCartCard"
-import { useSelector } from "react-redux"
 
 
 
 
-export default function SneakersCartList() {
+export default async function SneakersCartList() {
 
 
   const sneakersDataList:IsneakersCardData[] = []
+
   return (
     <>
     {

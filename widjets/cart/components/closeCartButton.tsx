@@ -1,3 +1,4 @@
+"use client"
 import { closeCart } from '@/app/api/slices/cartSlice'
 import { Button } from '@mui/material'
 import React from 'react'

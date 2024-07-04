@@ -4,22 +4,30 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, updateUser } from '@/app/api/slices/authSlice';
+import { toggleInFavorite } from '@/lib/serverActions/addToFavoriteAction';
 
 export default function FavoriteButton({itemId}: {itemId: number}) {
 
-    const dispatch = useDispatch()
+      const user = useSelector(selectUser)
+      const isFavorite = !!(user?.inFavorite?.find((element)=>element==itemId))
 
-    const isFavorit = false
+      const dispatch = useDispatch()
 
     return (
       <Button
+      onClick={async()=>{
+        const updatedUser = user?.inFavorite != undefined? (await toggleInFavorite(user?.id, user.inFavorite, itemId)):null
+
+        updatedUser!=null?dispatch(updateUser(updatedUser)):null
+      }}
       sx={{
         position: 'absolute',
         top: '25px',
         left: '25px',
-        background: isFavorit?'#FEF0F0':'inherit',
+        background: isFavorite?'#FEF0F0':'inherit',
         border: '1px solid #F8F8F8',
         borderRadius: '7px',
-      }} startIcon={isFavorit?<FavoriteOutlinedIcon color='warning'/>:<FavoriteBorderOutlinedIcon sx={{color:'#ECECEC'}}/>}/>
+      }} startIcon={isFavorite?<FavoriteOutlinedIcon color='warning'/>:<FavoriteBorderOutlinedIcon sx={{color:'#ECECEC'}}/>}/>
     )
 }

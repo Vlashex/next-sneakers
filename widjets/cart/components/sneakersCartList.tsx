@@ -1,13 +1,26 @@
+"use client"
 import { IsneakersCardData } from "@/app/types"
 import SneakersCartCard from "./sneakersCartCard"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { selectUser } from "@/app/api/slices/authSlice"
+import { Button } from "@mui/material"
+import { getListData } from "@/app/(Main)/actions/getListAction"
 
 
 
 
-export default async function SneakersCartList() {
+export default function SneakersCartList() {
 
+  const user = useSelector(selectUser)
+  const [sneakersDataList, setSneakersDataList] = useState<IsneakersCardData[]>([])
 
-  const sneakersDataList:IsneakersCardData[] = []
+  useEffect(()=>{
+    const gg = async() => {
+      user?.inCart != undefined?setSneakersDataList((await getListData('')).filter(element=>user.inCart?.find(el=>el==element.id))):null
+    }
+    gg()
+  },[user])
 
   return (
     <>

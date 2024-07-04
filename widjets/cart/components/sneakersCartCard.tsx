@@ -16,7 +16,7 @@ export default function SneakersCartCard({id, title, price, image} : any) {
         mb: '40px',
       }}>
         <Stack direction='row' justifyContent='space-between' alignItems={'center'}>
-            <Image width={90} height={90} src={`http://localhost:1337${image.data.attributes.url}`} alt=''/>
+            <Image width={90} height={90} src={image} alt=''/>
             <Stack sx={{m: '0 12px'}}>
                 <Typography 
                   variant="body1" 

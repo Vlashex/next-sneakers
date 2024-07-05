@@ -3,10 +3,10 @@ import Image from "next/image";
 import React from "react";
 import FavoriteButton from "../../../../entities/favoriteButton";
 import CartButton from "../../../../entities/cartButton";
-import { IsneakersCardData } from "@/lib/types";
+import { ISneakersCardData } from "@/lib/types";
 import NextLink from "next/link";
 
-export default function SneakersCard({id, title, price, image}: IsneakersCardData) {
+export default function SneakersCard({id, title, price, image}: ISneakersCardData) {
 
     
   

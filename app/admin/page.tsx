@@ -2,18 +2,18 @@
 import React from 'react'
 import { Button, Stack} from '@mui/material'
 import { useForm } from "react-hook-form"
-import { IsneakersCardData } from "../../lib/types"
+import { ISneakersCardData } from "../../lib/types"
 import { Input } from "@mui/material"
 import { useCreateSneakersCardMutation } from './api/adminApi'
 
 
 export default function Page() {
 
-    const { register, handleSubmit, control, setValue } = useForm<IsneakersCardData>()
+    const { register, handleSubmit, control, setValue } = useForm<ISneakersCardData>()
 
     const [ createSneakersCard ] = useCreateSneakersCardMutation()
 
-    const onSubmit = (data: IsneakersCardData) => {
+    const onSubmit = (data: ISneakersCardData) => {
         try {
             createSneakersCard(data)
         } catch (error) {

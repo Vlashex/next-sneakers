@@ -21,7 +21,7 @@ export interface ILogin {
     password: string
 }
 
-export interface IsneakersCardData {
+export interface ISneakersCardData {
     id: number
     title: string
     price: number

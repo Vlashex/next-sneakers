@@ -1,4 +1,4 @@
-import { IsneakersCardData } from "@/lib/types";
+import { ISneakersCardData } from "@/lib/types";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request): Promise<Response> {

@@ -1,10 +1,10 @@
-import { IsneakersCardData } from "@/lib/types";
+import { ISneakersCardData } from "@/lib/types";
 import { apiSlice } from "@/app/api/authApi";
 
 const adminApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         createSneakersCard: builder.mutation({
-            query: (credentials: IsneakersCardData) => ({
+            query: (credentials: ISneakersCardData) => ({
                 url: '/api/admin/createSneakersCard',
                 method: 'POST',
 

@@ -1,17 +1,17 @@
 "use client"
-import { IsneakersCardData } from "@/lib/types"
+import { ISneakersCardData } from "@/lib/types"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import SneakersCard from "@/app/(Layout)/(Main)/components/sneakersCard"
 import { Button, Input, Stack, Typography } from "@mui/material"
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { getListDataById } from "../actions/getListByIdAction";
+import { getListDataByIdRange } from "../actions/getListByIdAction";
 
 export default function SneakersList() {
 
   const { ref, inView } = useInView()
 
-  const [sneakersCardsData, setSneakersCardsData] = useState<IsneakersCardData[]>([])
+  const [sneakersCardsData, setSneakersCardsData] = useState<ISneakersCardData[]>([])
   const [filter, setFilter] = useState<string>('')
 
   const [lastCardId, setLastCardId] = useState<number>(48)
@@ -19,7 +19,7 @@ export default function SneakersList() {
 
   useEffect(() => {
     async function addNexCardsToList() {
-      setSneakersCardsData(await getListDataById(lastCardId, filter))
+      setSneakersCardsData(await getListDataByIdRange(lastCardId, filter))
     }
     if (inView) {
       addNexCardsToList()
@@ -58,7 +58,7 @@ export default function SneakersList() {
       <Stack direction='row' flexWrap='wrap' justifyContent={{sm:'space-between', xs: 'space-around'}}>
         
       { 
-      sneakersCardsData.map((value : IsneakersCardData)=>
+      sneakersCardsData.map((value : ISneakersCardData)=>
         <SneakersCard
             id={value.id}
             title={value.title}

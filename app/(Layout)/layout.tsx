@@ -11,7 +11,7 @@ export default async function Layout({
 
   return (
     <Container maxWidth='xl' sx={{p: '85px 30px', height: '100%'}}>
-        {/* <CartWraper/> */}
+        <CartWraper/>
         <Container maxWidth='lg' sx={{background: '#fff', borderRadius: '20px', p: '40px 0', minHeight: '100%'}}>
           <Container maxWidth='lg' sx={{borderBottom: '1px solid #EAEAEA', pb: '44px'}}>
             <Header/>

@@ -14,7 +14,7 @@ export default function SneakersList() {
   const [sneakersCardsData, setSneakersCardsData] = useState<IsneakersCardData[]>([])
   const [filter, setFilter] = useState<string>('')
 
-  const [lastCardId, setLastCardId] = useState<number>(40)
+  const [lastCardId, setLastCardId] = useState<number>(48)
   
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function SneakersList() {
     }
     if (inView) {
       addNexCardsToList()
-      setLastCardId(lastCardId+10)
+      setLastCardId(lastCardId+24)
     }
     else if(filter != '') {
       addNexCardsToList()

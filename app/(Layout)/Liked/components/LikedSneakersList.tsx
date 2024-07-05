@@ -3,8 +3,8 @@ import { selectUser } from '@/lib/slices/authSlice'
 import { IsneakersCardData } from '@/lib/types'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getListData } from '../../(Main)/actions/getListAction'
 import SneakersCard from '../../(Main)/components/sneakersCard'
+import { getListData } from '../../(Main)/actions/getListAction'
 
 export default function LikedSneakersList() {
 

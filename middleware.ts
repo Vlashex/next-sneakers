@@ -1,21 +1,14 @@
 import { NextResponse } from "next/server";
-import { prisma } from "./lib/prisma";
 
-const isLoggedIn: boolean = false
+export async function middleware(request: Request) {
 
-export function middleware(request: Request) {
-
-    // const user = prisma.user.
-
-    // if (request.url == 'http://localhost:3000/admin' && )
-
-    if (isLoggedIn) {
+    if ( request.url.includes(`?secretKey=${process.env.SECRET_KEY}`) ) {
         return NextResponse.next()
-    }  
+    }
 
-    return NextResponse.redirect(new URL('/LogIn', request.url))
+    return NextResponse.redirect(new URL('/', request.url))
 }
 
 export const config = {
-    matcher: ['/test']
+    matcher: ['/Admin']
 }

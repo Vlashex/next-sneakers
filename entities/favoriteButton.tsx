@@ -4,7 +4,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, updateUser } from '@/app/api/slices/authSlice';
+import { selectUser, updateUser } from '@/lib/slices/authSlice';
 import { toggleInFavorite } from '@/lib/serverActions/addToFavoriteAction';
 
 export default function FavoriteButton({itemId}: {itemId: number}) {

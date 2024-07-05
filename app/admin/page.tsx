@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button, Stack} from '@mui/material'
 import { useForm } from "react-hook-form"
-import { IsneakersCardData } from "../types"
+import { IsneakersCardData } from "../../lib/types"
 import { Input } from "@mui/material"
 import { useCreateSneakersCardMutation } from './api/adminApi'
 

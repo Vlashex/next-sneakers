@@ -1,5 +1,5 @@
 "use client"
-import { selectUser } from '@/app/api/slices/authSlice'
+import { selectUser } from '@/lib/slices/authSlice'
 import { Container, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux'

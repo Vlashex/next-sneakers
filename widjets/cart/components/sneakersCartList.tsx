@@ -1,11 +1,11 @@
 "use client"
-import { IsneakersCardData } from "@/app/types"
+import { IsneakersCardData } from "@/lib/types"
 import SneakersCartCard from "./sneakersCartCard"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { selectUser } from "@/app/api/slices/authSlice"
+import { selectUser } from "@/lib/slices/authSlice"
 import { Button } from "@mui/material"
-import { getListData } from "@/app/(Main)/actions/getListAction"
+import { getListData } from "@/app/(Layout)/(Main)/actions/getListAction"
 
 
 

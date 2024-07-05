@@ -1,14 +1,34 @@
 "use client"
-import { IsneakersCardData } from "@/app/types"
+import { IsneakersCardData } from "@/lib/types"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import SneakersCard from "@/app/(Main)/components/sneakersCard"
+import SneakersCard from "@/app/(Layout)/(Main)/components/sneakersCard"
 import { Button, Input, Stack, Typography } from "@mui/material"
-import { useState } from "react";
-import { getListData } from "../actions/getListAction";
+import { useEffect, useState } from "react";
+import { getListDataById } from "../actions/getListAction";
+import { useInView } from "react-intersection-observer";
 
-export default function SneakersList({data}: {data: IsneakersCardData[]}) {
+export default function SneakersList() {
 
-  const [sneakersListData, setSneakersListData] = useState(data)
+  const { ref, inView } = useInView()
+
+  const [sneakersCardsData, setSneakersCardsData] = useState<IsneakersCardData[]>([])
+  const [filter, setFilter] = useState<string>('')
+
+  const [lastCardId, setLastCardId] = useState<number>(40)
+  
+
+  useEffect(() => {
+    async function addNexCardsToList() {
+      setSneakersCardsData(await getListDataById(lastCardId, filter))
+    }
+    if (inView) {
+      addNexCardsToList()
+      setLastCardId(lastCardId+10)
+    }
+    else if(filter != '') {
+      addNexCardsToList()
+    }
+  }, [inView, filter])
 
 
   return (
@@ -26,18 +46,19 @@ export default function SneakersList({data}: {data: IsneakersCardData[]}) {
             ":hover": {m: ''}
             }}
           />
-          <form action={async(formData:FormData)=>{
-              const filter = formData.get("filter") as string
-              const data = await getListData(filter)
-              setSneakersListData(data)
+          <form action={(formData: FormData)=>{
+            const rawData = formData.get('filter') as string
+            rawData != null? setFilter(rawData): null
+            console.log(rawData)
           }}>
             <Input name="filter" disableUnderline placeholder="Поиск..." sx={{flex: '1'}}/>
           </form>
         </Stack>
       </Stack>
       <Stack direction='row' flexWrap='wrap' justifyContent={{sm:'space-between', xs: 'space-around'}}>
-      {
-        sneakersListData.map((value : IsneakersCardData)=>
+        
+      { 
+      sneakersCardsData.map((value : IsneakersCardData)=>
         <SneakersCard
             id={value.id}
             title={value.title}
@@ -48,6 +69,7 @@ export default function SneakersList({data}: {data: IsneakersCardData[]}) {
         )
       }
     </Stack>
+    <div ref={ref}/>  
     </>
   )
 }

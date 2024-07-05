@@ -1,10 +1,10 @@
 "use client"
-import { selectUser } from '@/app/api/slices/authSlice'
-import { IsneakersCardData } from '@/app/types'
+import { selectUser } from '@/lib/slices/authSlice'
+import { IsneakersCardData } from '@/lib/types'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getListData } from '../../actions/getListAction'
-import SneakersCard from '../../components/sneakersCard'
+import { getListData } from '../../(Main)/actions/getListAction'
+import SneakersCard from '../../(Main)/components/sneakersCard'
 
 export default function LikedSneakersList() {
 
@@ -12,10 +12,10 @@ export default function LikedSneakersList() {
     const [sneakersDataList, setSneakersDataList] = useState<IsneakersCardData[]>([])
   
     useEffect(()=>{
-      const gg = async() => {
+      const getLikedSneakersListData = async() => {
         user?.inFavorite != undefined?setSneakersDataList((await getListData('')).filter(element=>user.inFavorite?.find(el=>el==element.id))):null
       }
-      gg()
+      getLikedSneakersListData()
     },[user])
     
     return (

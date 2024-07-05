@@ -1,5 +1,5 @@
 
-import { IAuth, IUser } from "@/app/types";
+import { IAuth, IUser } from "@/lib/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit/react";
 
 const baseState:IAuth = {

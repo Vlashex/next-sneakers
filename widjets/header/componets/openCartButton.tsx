@@ -4,7 +4,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { openCart } from '@/app/api/slices/cartSlice';
+import { openCart } from '@/lib/slices/cartSlice';
 
 export default function OpenCartButton() {
 

@@ -1,4 +1,4 @@
-import { closeCart } from '@/app/api/slices/cartSlice'
+import { closeCart } from '@/lib/slices/cartSlice'
 import { Button, Container, Stack, Typography } from '@mui/material'
 import React, { ReactElement } from 'react'
 import { useDispatch } from 'react-redux'

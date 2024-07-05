@@ -1,6 +1,6 @@
 import { apiSlice } from '@/app/api/authApi'
-import authSlice from '@/app/api/slices/authSlice'
-import cartSlice from '@/app/api/slices/cartSlice'
+import authSlice from '@/lib/slices/authSlice'
+import cartSlice from '@/lib/slices/cartSlice'
 import { configureStore, Tuple } from '@reduxjs/toolkit'
 
 export const makeStore = () => {

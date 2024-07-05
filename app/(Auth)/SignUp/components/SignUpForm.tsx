@@ -5,7 +5,7 @@ import { useCookies } from 'react-cookie';
 import { Button, Input, Stack } from '@mui/material';
 import { redirect, useRouter } from 'next/navigation';
 import { register } from '../actions/registerAction';
-import { setCredentials } from '@/app/api/slices/authSlice';
+import { setCredentials } from '@/lib/slices/authSlice';
 
 export default function SignUpForm() {
 

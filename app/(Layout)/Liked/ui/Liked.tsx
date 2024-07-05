@@ -9,7 +9,7 @@ export default function Liked() {
             <Button/>
             <Typography variant='h3' sx={{m: '20px 0'}}>Мои закладки</Typography>
         </Stack>
-        <Stack direction={'row'} flexWrap={'wrap'} width={'100%'}>
+        <Stack direction={'row'} flexWrap={'wrap'} width={'100%'} justifyContent={{sm:'space-between', xs: 'space-around'}}>
           <LikedSneakersList/>
         </Stack>
     </Container>

@@ -1,9 +1,10 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Link, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import FavoriteButton from "../../../entities/favoriteButton";
-import CartButton from "../../../entities/cartButton";
-import { IsneakersCardData } from "@/app/types";
+import FavoriteButton from "../../../../entities/favoriteButton";
+import CartButton from "../../../../entities/cartButton";
+import { IsneakersCardData } from "@/lib/types";
+import NextLink from "next/link";
 
 export default function SneakersCard({id, title, price, image}: IsneakersCardData) {
 
@@ -19,11 +20,13 @@ export default function SneakersCard({id, title, price, image}: IsneakersCardDat
         borderRadius: '40px',
         mb: '40px',
       }}>
-        <Image width={125} height={125} src={image} alt=''/>
-        <Typography 
-          variant="body1" 
-          fontWeight={600} 
-          sx={{maxWidth: '160px', height: '40px', overflow: 'hidden', m: '14px 0'}}>{title}</Typography>
+        <Link href={`Product?itemId=${id}`} component={NextLink} color={'primary.dark'} underline="none">
+          <Image width={125} height={125} src={image} alt=''/>
+          <Typography 
+            variant="body1" 
+            fontWeight={600} 
+            sx={{maxWidth: '160px', height: '40px', overflow: 'hidden', m: '14px 0'}}>{title}</Typography>
+        </Link>
   
         <Stack direction='row' justifyContent='space-between'>
           <Stack>

@@ -12,7 +12,7 @@ export default async function Page() {
     <Container maxWidth='md'>
       <Banner/>
       
-      <SneakersList data={data}/>
+      <SneakersList/>
     </Container>
   );
 }

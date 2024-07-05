@@ -1,5 +1,5 @@
 "use client"
-import { closeCart } from '@/app/api/slices/cartSlice'
+import { closeCart } from '@/lib/slices/cartSlice'
 import { Button } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'

@@ -5,7 +5,7 @@ import Cart from './cart';
 import { Box } from '@mui/material';
 import CloseCartButton from '../components/closeCartButton';
 import SneakersCartList from '../components/sneakersCartList';
-import { selectCartOpen } from '@/app/api/slices/cartSlice';
+import { selectCartOpen } from '@/lib/slices/cartSlice';
 
 export default function CartWraper() {
 

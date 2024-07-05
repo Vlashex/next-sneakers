@@ -5,8 +5,9 @@ import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, updateUser } from '@/app/api/slices/authSlice';
+import { selectUser, updateUser } from '@/lib/slices/authSlice';
 import { toggleInCart } from '@/lib/serverActions/addToCartAction';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -15,12 +16,15 @@ export default function CartButton({sx, type, itemId} : {sx?: any, type?: string
 
     const user = useSelector(selectUser)
     const inCart = !!(user?.inCart?.find((element)=>element==itemId))
+    const router = useRouter()
 
     const dispatch = useDispatch()
 
     return (
       <Button
       onClick={async()=>{
+        !!user?null:router.replace('/LogIn')
+
         const updatedUser = user?.inCart != undefined? (await toggleInCart(user?.id, user.inCart, itemId)):null
 
         updatedUser!=null?dispatch(updateUser(updatedUser)):null

@@ -4,7 +4,7 @@ import NextLink from 'next/link'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { selectUser } from '@/app/api/slices/authSlice';
+import { selectUser } from '@/lib/slices/authSlice';
 
 export default function ProfileButton() {
 

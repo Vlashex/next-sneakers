@@ -73,13 +73,6 @@ const themeOptions : ThemeOptions = {
             defaultProps: {
                 underline: 'none',
             },
-            styleOverrides: {
-                    root: {
-                        ":hover": {
-                            textDecoration: 'underline'
-                        }
-                    }
-                }
         },
         MuiContainer: {
             defaultProps: {

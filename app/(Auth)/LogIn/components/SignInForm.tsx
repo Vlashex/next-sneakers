@@ -3,7 +3,7 @@ import { Button, Input, Stack } from "@mui/material"
 import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { login } from "../actions/loginAction";
-import { setCredentials } from "@/app/api/slices/authSlice";
+import { setCredentials } from "@/lib/slices/authSlice";
 import { useCookies } from "react-cookie";
 
 const SignInForm = () => {

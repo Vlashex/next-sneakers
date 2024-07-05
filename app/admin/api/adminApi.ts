@@ -1,4 +1,4 @@
-import { IsneakersCardData } from "@/app/types";
+import { IsneakersCardData } from "@/lib/types";
 import { apiSlice } from "@/app/api/authApi";
 
 const adminApiSlice = apiSlice.injectEndpoints({

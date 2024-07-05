@@ -4,8 +4,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import SneakersCard from "@/app/(Layout)/(Main)/components/sneakersCard"
 import { Button, Input, Stack, Typography } from "@mui/material"
 import { useEffect, useState } from "react";
-import { getListDataById } from "../actions/getListAction";
 import { useInView } from "react-intersection-observer";
+import { getListDataById } from "../actions/getListByIdAction";
 
 export default function SneakersList() {
 

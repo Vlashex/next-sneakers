@@ -16,10 +16,12 @@ export default function SneakersCartList() {
   const [sneakersDataList, setSneakersDataList] = useState<IsneakersCardData[]>([])
 
   useEffect(()=>{
-    const gg = async() => {
-      user?.inCart != undefined?setSneakersDataList((await getListData('')).filter(element=>user.inCart?.find(el=>el==element.id))):null
+    const getCartSneakersListData = async() => {
+      const listdataraw = await getListData('')
+      const listdata = listdataraw.filter(element=>user?.inCart?.find(el=>el==element.id))
+      setSneakersDataList(listdata)
     }
-    gg()
+    user?.inCart!=undefined?getCartSneakersListData():null
   },[user])
 
   return (

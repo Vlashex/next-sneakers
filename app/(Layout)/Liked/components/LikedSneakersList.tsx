@@ -1,22 +1,16 @@
 "use client"
 import { selectUser } from '@/lib/slices/authSlice'
 import { IsneakersCardData } from '@/lib/types'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import SneakersCard from '../../(Main)/components/sneakersCard'
-import { getListData } from '../../(Main)/actions/getListAction'
 
-export default function LikedSneakersList() {
+export default function LikedSneakersList({data}: {data: IsneakersCardData[]}) {
 
     const user = useSelector(selectUser)
-    const [sneakersDataList, setSneakersDataList] = useState<IsneakersCardData[]>([])
+    const sneakersDataList = user?.inFavorite != null? data.filter(element => user.inFavorite?.find(el => el == element.id)) : []
   
-    useEffect(()=>{
-      const getLikedSneakersListData = async() => {
-        user?.inFavorite != undefined?setSneakersDataList((await getListData('')).filter(element=>user.inFavorite?.find(el=>el==element.id))):null
-      }
-      getLikedSneakersListData()
-    },[user])
+    
     
     return (
       <>

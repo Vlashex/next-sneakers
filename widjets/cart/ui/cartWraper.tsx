@@ -1,17 +1,13 @@
-"use client"
 import React from 'react'
-import { useSelector } from "react-redux";
 import Cart from './cart';
 import { Box } from '@mui/material';
 import CloseCartButton from '../components/closeCartButton';
 import SneakersCartList from '../components/sneakersCartList';
-import { selectCartOpen } from '@/lib/slices/cartSlice';
 
 export default function CartWraper() {
 
-    const isCartOpen = useSelector(selectCartOpen)
 
-    return (isCartOpen?
+    return (
     <Box
     sx={{
         position: 'fixed',
@@ -28,5 +24,5 @@ export default function CartWraper() {
             <SneakersCartList/>
         </Cart>
     </Box>
-    :null)
+    )
 }
